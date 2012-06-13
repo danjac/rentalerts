@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2>Register for Helsinki RentAlerts</h2>
+<p>Please fill in the form below to get started!</p>
+<p><strong>Note:</strong> Only your username will be public. We will not give away your email address or real name to any third party.</p>
+
+{% crispy form form.helper %}
+
+{% endblock %}

@@ -1,0 +1,267 @@
+[
+    {
+        "pk": 2,
+        "model": "apartments.city",
+        "fields": {
+            "name": "Espoo"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "apartments.city",
+        "fields": {
+            "name": "Helsinki"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "apartments.city",
+        "fields": {
+            "name": "Vantaa"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "apartments.area",
+        "fields": {
+            "city": 1,
+            "name": "Aurinkolahti"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "apartments.area",
+        "fields": {
+            "city": 2,
+            "name": "Espoonkeskus"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "apartments.area",
+        "fields": {
+            "city": 2,
+            "name": "Espoonlahti"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "apartments.area",
+        "fields": {
+            "city": 1,
+            "name": "Etu-T\u00f6\u00f6l\u00f6"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "apartments.area",
+        "fields": {
+            "city": 1,
+            "name": "Hietalahti"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "apartments.area",
+        "fields": {
+            "city": 1,
+            "name": "Kallio"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "apartments.area",
+        "fields": {
+            "city": 1,
+            "name": "Kamppi"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "apartments.area",
+        "fields": {
+            "city": 2,
+            "name": "Kauklahti"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "apartments.area",
+        "fields": {
+            "city": 2,
+            "name": "Kivenlahti"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "apartments.area",
+        "fields": {
+            "city": 1,
+            "name": "Korkeasaari"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "apartments.area",
+        "fields": {
+            "city": 1,
+            "name": "Lauttasaari"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "apartments.area",
+        "fields": {
+            "city": 2,
+            "name": "Lepp\u00e4vaara"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "apartments.area",
+        "fields": {
+            "city": 2,
+            "name": "Matinkyl\u00e4"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "apartments.area",
+        "fields": {
+            "city": 1,
+            "name": "Ruoholahti"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "apartments.area",
+        "fields": {
+            "city": 1,
+            "name": "Seurasaari"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "apartments.area",
+        "fields": {
+            "city": 2,
+            "name": "Soukka"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "apartments.area",
+        "fields": {
+            "city": 2,
+            "name": "Tapiola"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "apartments.area",
+        "fields": {
+            "city": 1,
+            "name": "Vuosaari"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "apartments.area",
+        "fields": {
+            "city": 2,
+            "name": "Westend"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "apartments.apartment",
+        "fields": {
+            "bike_storage": true,
+            "furnished": false,
+            "satellite": false,
+            "postcode": "02360",
+            "parking": true,
+            "rent_pcm": "800.00",
+            "num_floors": null,
+            "size": 20.0,
+            "area": 1,
+            "broadband": true,
+            "other_amenities": "",
+            "agency": null,
+            "kitchen_amenities": "Fridge, freezer, microwave, dishwasher",
+            "extra_storage": true,
+            "garage": false,
+            "latitude": 60.1387467,
+            "balcony": false,
+            "type": 1,
+            "available_from": "2012-06-30",
+            "laundry": true,
+            "description": "",
+            "num_rooms": 1,
+            "gym": false,
+            "available_to": null,
+            "sauna": 2,
+            "garden_size": null,
+            "lift": true,
+            "is_available": true,
+            "address": "Kastevuorenkuja 3 K163",
+            "tenant": 1,
+            "furniture": "",
+            "is_shared": false,
+            "cable": true,
+            "floor": 3,
+            "heating": "Central",
+            "longitude": 24.6729708,
+            "agency_website": null,
+            "deposit": null,
+            "landlord": 2,
+            "added_on": "2012-02-19T21:19:44.712Z"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "apartments.apartment",
+        "fields": {
+            "bike_storage": false,
+            "furnished": false,
+            "satellite": false,
+            "postcode": "00990",
+            "parking": false,
+            "rent_pcm": "1200.00",
+            "num_floors": 8,
+            "size": 51.0,
+            "area": 2,
+            "broadband": false,
+            "other_amenities": "",
+            "agency": null,
+            "kitchen_amenities": "Fridge freezer, oven",
+            "extra_storage": false,
+            "garage": false,
+            "latitude": 60.2045404,
+            "balcony": false,
+            "type": 1,
+            "available_from": "2012-02-29",
+            "laundry": false,
+            "description": "",
+            "num_rooms": 2,
+            "gym": false,
+            "available_to": null,
+            "sauna": 3,
+            "garden_size": null,
+            "lift": true,
+            "is_available": true,
+            "address": "Leikosaarentie 28 A",
+            "tenant": 1,
+            "furniture": "",
+            "is_shared": false,
+            "cable": false,
+            "floor": 3,
+            "heating": "",
+            "longitude": 25.1511427,
+            "agency_website": null,
+            "deposit": "3600.00",
+            "landlord": 2,
+            "added_on": "2012-02-19T21:54:45.617Z"
+        }
+    }
+]

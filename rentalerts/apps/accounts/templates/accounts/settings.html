@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Account settings</h2>
+
+<div>
+    <a href="{% url accounts:account_settings %}">Change my personal details &raquo;</a>
+</div>
+        
+<div>
+    <a href="{% url accounts:password_change %}">Change my password &raquo;</a>
+</div>
+
+
+<div>
+    <a href="{% url alerts:edit %}">Change my alert settings &raquo;</a>
+</div>
+{% endblock %}

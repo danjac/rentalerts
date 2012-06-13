@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% crispy form form.helper %}
+
+<div>
+    <a href="{% url accounts:register %}?next={{ next }}">Not yet a member? Sign up now!</a>
+    </div><div>
+    <a href="{% url accounts:password_reset %}">Forgotten your password?</a>
+</div>
+{% endblock %}

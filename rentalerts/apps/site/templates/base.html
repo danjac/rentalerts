@@ -1,0 +1,89 @@
+{% load helpers_tags %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>RentAlerts</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}rentalerts/css/rentalerts.css" />
+    <script type="text/javascript" src="{{ STATIC_URL }}bootstrap/js/jquery.js" /></script>
+    <script type="text/javascript" 
+              src=' http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js '></script>
+    <link rel="stylesheet" type="text/css" 
+    href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css"></link>
+    {% block extra_head_tags %}{% endblock %}
+
+
+    </head>
+<body>
+    <!-- navbar -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="{% url site:home %}">Catchafire</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+
+              {% if user.is_authenticated %}
+               <li{% activetab 'site' 'dashboard' %}><a href="{% url site:dashboard %}">Home</a></li>
+               <li{% activetab 'alerts' %}><a href="{% url alerts:list %}">Alerts</a></li>
+               <li{% activetab 'pm' %}><a href="{% url pm:received_list %}">Messages</a></li>
+              <li{% activetab 'bookmarks' %}><a href="{% url bookmarks:list %}">Bookmarks</a></li>
+              <li{% activetab 'accounts' %}><a href="{% url accounts:settings %}">Settings</a></li>
+
+              {% if user.is_staff %}
+              <li><a href="/admin/">Control Panel</a></li>
+              {% endif %}
+
+
+              {% else %}
+               <li{% activetab 'site' 'home' %}><a href="{% url site:home %}">Home</a></li>
+              <li{% activetab 'accounts' 'register' %}><a href="{% url accounts:register %}">Sign up</a></li>
+              <li{% activetab 'accounts' 'login' %}><a href="{% url accounts:login %}">Login</a></li>
+              {% endif %}
+
+              <li{% activetab 'site' 'about' %}><a href="{% url site:about %}">About</a></li>
+
+              {% if user.is_authenticated %}
+               <li><a href="{% url accounts:logout %}">Logout</a></li>
+               {% endif %}
+
+               <li><form class="navbar-search pull-left" method="GET" action="{% url apartments:search %}">
+                <input type="text" class="search-query" name="search" placeholder="Search">
+            </form></li.>
+
+            
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <! -- end navbar -->
+
+    <div class="container">
+        {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+
+        {% block tabs %}{% endblock %}
+    {% block content %}
+    {% endblock %}
+    </div>
+    {% block js_init %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('input.dateinput').datepicker();
+        });
+    </script>
+    {% endblock %}
+    {% block extra_js_init %}{% endblock %}
+
+</body>
+</html>

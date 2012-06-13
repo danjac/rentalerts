@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load apartments_tags %}
+
+{% block content %}
+<div class="row">
+
+    <div class="span6">
+        <h2>Alerts</h2>
+        <table class="table table-bordered table-condensed table-striped">
+            {% for alert in user.alert_set.available|slice:":6" %}
+            <tr>
+                {% with alert.apartment as apartment %}
+                <td><a href="{{ apartment.get_absolute_url }}">{% if not apartment.is_available %}<s>{{ apartment }}</s>{% else %}{{ apartment }}{% endif %}</a></td> 
+                {% endwith %}
+            </tr>
+            {% empty %}
+            <tr>
+                <td>You do not have any alerts.</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        {% if user.search %}
+        <div>
+            <a href="{% url alerts:list %}">More alerts &raquo;</a>
+        </div>
+        {% else %}
+        <div>
+            <a href="{% url alerts:edit %}">Set up alerts &raquo;</a>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="span6">
+
+    <h2>New apartments</h2>
+
+        {% get_latest_apartments 6 as apartments %}
+        <table class="table table-bordered table-striped table-condensed">
+            <tr>
+                <th>Where</th>
+                <th>Rooms</th>
+                <th>How much</th>
+                <th>From</th>
+            </tr>
+
+            {% for apartment in apartments  %}
+            <tr>
+                <td><b><a href="{{ apartment.get_absolute_url }}">{{ apartment.get_full_address }}</a></b></td>
+                <td>{{ apartment.get_num_rooms_display }}</td>
+                <td>{{ apartment.rent_pcm }} / mo</td>
+                {% if apartment.available_from %}
+                <td>{{ apartment.available_from|date:"F Y" }}</td>
+                {% else %}
+                <td>
+                    <span class="label label-important">Now</span>
+                </td>
+                {% endif %}
+            </tr>
+            {% empty %}
+            <tr>
+            There are currently no apartments available.
+            </tr>
+            {% endfor %}
+        </table>
+        <div>
+            <a href="{% url apartments:list %}">More apartments &raquo;</a>
+        </div>
+
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+
+    <div class="span6">
+
+        <h2>Messages</h2>
+        <table class="table table-bordered table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>Received</th>
+                    <th>From</th>
+                    <th>Apartment</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+        {% for message in user.received_messages.all|slice:":6" %}
+            <tr>
+                <td>{{ message.created_on|date:"H:i N n, Y" }}</td>
+                <td><a href="{{ message.get_absolute_url }}">{{ message.sender }}</a></td>
+                {% with message.apartment as apartment %}
+                <td><b><a href="{{ apartment.get_absolute_url }}">{{ apartment.get_full_address }}</a></b></td>
+                {% endwith %}
+                <td>
+                    {% if not message.is_read %}
+                    <span class="label label-important">New</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">You do not have any messages.</td>
+            </tr>
+       {% endfor %}
+            </tbody>
+        </table>
+
+        <div>
+            <a href="{% url pm:received_list %}">More messages &raquo;</a>
+        </div>
+
+    </div>
+
+    <div class="span6">
+
+        <h2>My Apartments</h2>
+        <table class="table table-bordered table-striped table-condensed">
+            <tbody>
+            {% for apartment in user.apartment_set.all|slice:":6" %}
+            <tr>
+                <td><b><a href="{{ apartment.get_absolute_url }}">{{ apartment.get_full_address }}</a></b></td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>You do not have any apartments.</td>
+        </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div>
+            <a href="{% url apartments:create %}">Add a new apartment &raquo;</a>
+        </div>
+        
+
+    </div>
+
+
+</div>
+
+{% endblock %}

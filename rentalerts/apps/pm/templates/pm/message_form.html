@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% if parent %}
+<h3><a href="{{ parent.apartment.get_absolute_url }}">{{ parent.apartment }}</a></h3>
+{% else %}
+<h3><a href="{{ apartment.get_absolute_url }}">{{ apartment }}</a></h3>
+{% endif %}
+
+{% crispy form form.helper %}
+
+{% endblock %}

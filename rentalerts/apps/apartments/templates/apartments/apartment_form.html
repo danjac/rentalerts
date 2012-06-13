@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block extra_js_init %}
+
+<script type="text/javascript">
+
+    var hideAgencyFields = function(){
+        $('#div_id_agency').hide();
+        $('#div_id_agency_website').hide();
+    }
+
+    var showAgencyFields = function(){
+        $('#div_id_agency').show();
+        $('#div_id_agency_website').show();
+    }
+
+    var isAgencyChecked = function(){
+        return $('#id_landlord_3').attr('checked');
+    }
+
+    var isFurnishedChecked = function(){
+        return $('#id_furnished').attr('checked');
+    }
+
+    var showFurniture = function(){
+        $('#div_id_furniture').show();
+    }
+
+    var hideFurniture = function(){
+        $('#div_id_furniture').hide();
+    }
+
+    $(document).ready(function(){
+        if (!isAgencyChecked()){
+            hideAgencyFields();
+        }
+
+        $('#div_id_landlord input').click(function() { 
+            if (isAgencyChecked()){
+                showAgencyFields();
+            } else {
+                hideAgencyFields();
+            }
+        });
+
+        if(!isFurnishedChecked()){
+            hideFurniture();
+        } 
+
+        $('#id_furnished').click(function(){
+            if ($(this).attr('checked')){
+                showFurniture();
+            } else {
+                hideFurniture();
+            }
+        });
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+
+
+{% crispy form form.helper %}
+
+{% endblock %}

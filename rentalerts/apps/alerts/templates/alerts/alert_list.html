@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load pagination_tags %}
+
+{% block content %}
+
+{% autopaginate object_list 20 %}
+
+<h2>My Alerts</h2>
+
+<table class="table table-condensed table-striped">
+    {% for alert in object_list %}
+    <tr>
+        {% with alert.apartment as apartment %}
+        <td><a href="{{ apartment.get_absolute_url }}">{% if not apartment.is_available %}<s>{{ apartment }}</s>{% else %}{{ apartment }}{% endif %}</a></td> 
+        {% endwith %}
+        <td><a href="{% url alerts:delete alert.id %}">Delete</a></td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td>You do not have any alerts.</td>
+    </tr>
+    {% endfor %}
+        
+</table>
+
+<div>
+    <a href="{% url alerts:edit %}">Configure your alerts &raquo;</a>
+</div>
+
+{% paginate %}
+
+{% endblock %}
+

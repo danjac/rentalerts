@@ -1,0 +1,17 @@
+{% load helpers_tags %}
+Hi {{ user.first_name|default:user.username }}
+
+You have received the following alerts:
+
+{% for alert in alerts %}
+
+{{ alert.apartment }}
+
+{% absoluteuri alert.apartment.get_absolute_url %}
+
+{% endfor %}
+
+To change your alert settings:
+
+{% absoluteuri "alerts:edit" %}
+

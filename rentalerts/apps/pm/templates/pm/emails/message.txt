@@ -1,0 +1,19 @@
+{% load helpers_tags %}
+You received the following message from {{ message.sender.username }} regarding your apartment,
+
+{{ message.apartment }}:
+
+{{ message.subject }}
+
+{{ message.message }}
+
+To see apartment details:
+
+{% absoluteuri message.apartment.get_absolute_url %}
+
+To reply to this message:
+
+{% absoluteuri "pm:reply" message.id %}
+
+
+

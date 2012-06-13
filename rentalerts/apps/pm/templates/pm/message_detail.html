@@ -1,0 +1,27 @@
+{% extends "pm/pm_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<h2>{{ message.subject }}</h2>
+
+<div class="row">
+    <div class="span6">
+        <a href="{{ message.apartment.get_absolute_url }}">{{ message.apartment }}</a>
+    </div>
+    <div class="span6">
+        Sent by <strong>{{ message.sender.username }}</strong> on <strong>{{ message.created_on|date:"H:i N n, Y" }}</strong>
+    </div>
+</div>
+
+
+<div class="well">
+    <strong>{{ message.message|linebreaksbr }}</strong>
+</div>
+
+{% if form %}
+{% crispy form form.helper %}
+{% endif %}
+
+{% endblock %}

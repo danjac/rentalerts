@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if search %}
+<h2>Search results for '{{ search }}'</h2>
+{% endif %}
+
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <th>Where</th>
+        <th>Rooms</th>
+        <th>How much</th>
+        <th>From</th>
+    </tr>
+
+    {% for apartment in object_list  %}
+    <tr>
+        <td><b><a href="{{ apartment.get_absolute_url }}">{{ apartment.get_full_address }}</a></b></td>
+        <td>{{ apartment.get_num_rooms_display }}</td>
+        <td>{{ apartment.rent_pcm }} / mo</td>
+        <td>{{ apartment.available_from|date:"F Y" }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="4">
+        {% if search %}
+        Sorry, no results found for your search
+        {% else %}
+        Please enter something in the "Search" box
+        {% endif %}
+    </td></tr>
+    {% endfor %}
+</table>
+{% endblock %}

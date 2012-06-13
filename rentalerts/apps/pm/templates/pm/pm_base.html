@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load helpers_tags %}
+
+{% block tabs %}
+<ul class="nav nav-tabs">
+
+    <li{% activetab "pm" "received_list" %}>
+        <a href="{% url pm:received_list %}">Received messages</a>
+    </li>
+
+    <li{% activetab "pm" "sent_list" %}>
+    <a href="{% url pm:sent_list %}">Sent messages</a>
+    </li>
+</ul>
+{% endblock %}

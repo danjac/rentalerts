@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load pagination_tags %}
+
+{% block content %}
+
+{% autopaginate object_list 20 %}
+
+<h2>My Bookmarks</h2>
+
+<table class="table table-condensed table-striped">
+    {% for bookmark in object_list %}
+    <tr>
+        <td><a href="{{ bookmark.get_absolute_url }}">{% if not bookmark.apartment.is_available %}<s>{{ bookmark }}</s>{% else %}{{ bookmark }}{% endif %}</a></td> 
+    </tr>
+    {% empty %}
+    <tr>
+        <td>You do not have any bookmarks.</td>
+    </tr>
+    {% endfor %}
+        
+</table>
+{% paginate %}
+
+{% endblock %}

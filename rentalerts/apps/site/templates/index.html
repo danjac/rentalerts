@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+        <img src="{{ STATIC_URL }}rentalerts/img/helsinki/panorama.jpg" height="" width="" title="Original from Wikipedia">
+
+</div>
+
+<h1 class="offset1" style="margin-bottom:30px;">Being a foreigner in Helsinki doesn't have to mean being homeless.</h1>
+
+<div class="well">
+    <p>
+        Helsinki is one of the most difficult cities in Europe to find affordable housing. Foreigners face special difficulties 
+        when moving to Helsinki, especially if they do not have any local connections. Often they end up paying higher rents than 
+        Finns.
+    </p>
+        <p>
+        <strong>Helsinki RentAlerts</strong> aims to change that by providing a community-driven network to let each other know 
+        when properties become available. Whether you need somewhere to live for a few weeks or you are moving here permanently, 
+        whether you just need a spare couch or a home for your family, <strong>Helsinki RentAlerts</strong> is here to help you.
+        </p>
+</div>
+
+<div class="row">
+    <div class="offset1 span3 well">
+        <h3>Help each other.</h3>
+        <p>
+            Whether you're going to move out and there's going to be an apartment free -
+            or if you have a spare room to let out. Let others know! 
+        </p>
+        <div>
+            <a href="{% url site:about %}">Learn more &raquo;</a>
+        </div>
+    </div>
+    <div class="span3 well">
+        <h3>Keep up to date.</h3>
+        <p>
+            Apartments here go so quickly. <strong>Helsinki RentAlerts</strong> helps you 
+            to find that ideal home by letting you know by email as soon as possible when 
+            a suitable apartment appears. 
+        </p>
+        <div>
+            <a href="{% url site:about %}">Learn more &raquo;</a>
+        </div>
+    </div>
+    <div class="span3 well">
+        <h3>Completely free.</h3>
+        <p>
+        You don't have to pay a cent to use this service. We don't have anything to do 
+        with the rental agencies. This is a community-driven website to help foreigners in
+        Helsinki to help each other.
+        </p>
+        <div>
+            <a href="{% url site:about %}">Learn more &raquo;</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

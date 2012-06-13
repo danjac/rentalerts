@@ -1,0 +1,39 @@
+{% extends "pm/pm_base.html" %}
+{% load pagination_tags %}
+
+{% block content %}
+
+{% autopaginate object_list 12 %}
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Received</th>
+        <th>Subject</th>
+        <th>From</th>
+        <th>Apartment</th>
+        <th></th>
+    </tr>
+    {% for message in object_list %}
+    <tr>
+        <td>{{ message.created_on|date:"H:i N n, Y" }}</td>
+        <td>
+            <a href="{{ message.get_absolute_url }}">{{ message.subject|default:"(No subject)" }}</a></td>
+
+        <td>{{ message.sender.username }}</td>
+        <td><a href="{{ message.apartment.get_absolute_url }}">{{ message.apartment }}</a></td>
+        <td>
+            {% if not message.is_read %}
+            <span class="label label-important">New</span>
+            {% endif %}
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="3">You haven't received any messages.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% paginate %}
+
+{% endblock %}

@@ -1,0 +1,18 @@
+# use glob syntax.
+syntax: glob
+fabfile.py
+*.pyc
+.DS_Store
+tags
+ptags
+.hg/*
+.hgignore
+*.swp
+*.swo
+*.swn
+*~
+*.original
+*.bak
+*.orig
+.idea/*
+*.ropeproject
