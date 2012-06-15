@@ -4,8 +4,8 @@ from django import forms
 from crispy_forms.layout import Layout, Fieldset, Div, Submit
 from crispy_forms.bootstrap import FormActions
 
-from rentalerts.apps.helpers.forms import ModelForm
-from rentalerts.apps.helpers.forms.fields import GroupedModelMultipleChoiceField
+from rentalerts.apps.core.forms import ModelForm
+from rentalerts.apps.core.forms.fields import GroupedModelMultipleChoiceField
 from rentalerts.apps.apartments.models import Area, Apartment
 from rentalerts.apps.alerts.models import Search
 

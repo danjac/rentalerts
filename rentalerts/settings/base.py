@@ -112,7 +112,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
     "django.contrib.auth.context_processors.auth",
     "django.contrib.messages.context_processors.messages",
-    "rentalerts.apps.site.context_processors.google_api_key",
+    "rentalerts.apps.core.context_processors.google_api_key",
 )
 
 INTERNAL_IPS = ('127.0.0.1',)
@@ -134,15 +134,16 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'grappelli',
+    #'grappelli',
     'django.contrib.admin',
 
     'south',
     'debug_toolbar',
     'django_coverage',
+    'django_nose',
 
-    'rentalerts.apps.site',
-    'rentalerts.apps.helpers',
+    'rentalerts.apps.core',
+    'rentalerts.apps.home',
     'rentalerts.apps.apartments',
     'rentalerts.apps.accounts',
     'rentalerts.apps.bookmarks',
@@ -193,3 +194,5 @@ GRAPPELLI_ADMIN_TITLE = "Helsinki RentAlerts Control Panel"
 EMAIL_SUBJECT_PREFIX = "[Helsinki RentAlerts] "
 
 CRISPY_TEMPLATE_PACK = "bootstrap"
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'

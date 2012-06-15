@@ -10,7 +10,7 @@ from django.contrib import messages
 
 from rentalerts.apps.accounts.decorators import login_required
 from rentalerts.apps.apartments.models import Apartment
-from rentalerts.apps.helpers.utils.email import send_email_from_template
+from rentalerts.apps.core.utils.email import send_email_from_template
 from rentalerts.apps.pm.models import Message
 from rentalerts.apps.pm.forms import MessageForm, ReplyMessageForm
 

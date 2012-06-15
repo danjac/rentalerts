@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, url
 
 
-from rentalerts.apps.site import views
+from rentalerts.apps.home import views
 
 urlpatterns = patterns('',
     url(r'^$', views.HomePage.as_view(), name='home'),

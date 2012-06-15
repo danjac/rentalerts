@@ -4,8 +4,8 @@ from django.contrib.localflavor.fi.forms import FIZipCodeField
 from crispy_forms.layout import Layout, Fieldset, Div, Submit
 from crispy_forms.bootstrap import FormActions
 
-from rentalerts.apps.helpers.forms import ModelForm
-from rentalerts.apps.helpers.forms.fields import GroupedModelChoiceField
+from rentalerts.apps.core.forms import ModelForm
+from rentalerts.apps.core.forms.fields import GroupedModelChoiceField
 from rentalerts.apps.apartments.models import Apartment, Area
 
 

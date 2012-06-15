@@ -3,7 +3,7 @@ from django import forms
 from crispy_forms.layout import Layout, Fieldset, Submit
 from crispy_forms.bootstrap import FormActions
 
-from rentalerts.apps.helpers.forms import ModelForm
+from rentalerts.apps.core.forms import ModelForm
 from rentalerts.apps.pm.models import Message
 
 

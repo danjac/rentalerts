@@ -14,7 +14,7 @@ from django.contrib.auth.forms import (
 from crispy_forms.layout import Layout, Fieldset, Submit
 from crispy_forms.bootstrap import FormActions
 
-from rentalerts.apps.helpers.forms import LayoutMixin, ModelForm
+from rentalerts.apps.core.forms import LayoutMixin, ModelForm
 
 
 class PasswordChangeForm(LayoutMixin, PasswordChangeForm):

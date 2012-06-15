@@ -8,19 +8,19 @@ from django.core.urlresolvers import NoReverseMatch
 from django.core.exceptions import ImproperlyConfigured
 from django.contrib.auth.models import User
 
-from rentalerts.apps.helpers.forms import LayoutMixin, Form, ModelForm
+from rentalerts.apps.core.forms import LayoutMixin, Form, ModelForm
 
-from rentalerts.apps.helpers.forms.fields import (
+from rentalerts.apps.core.forms.fields import (
     GroupedModelChoiceField, 
     GroupedModelMultipleChoiceField
 )
 
-from rentalerts.apps.helpers.templatetags.helpers_tags import (
+from rentalerts.apps.core.templatetags.core_tags import (
     activetab,
     absoluteuri,
 )
 
-from rentalerts.apps.helpers.utils.email import send_email_from_template
+from rentalerts.apps.core.utils.email import send_email_from_template
 
 
 class SomeModel(models.Model):
