@@ -5,7 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^', include('rentalerts.apps.home.urls', namespace='site')),
+    url(r'^', include('rentalerts.apps.home.urls', namespace='home')),
     url(r'^account/', include('rentalerts.apps.accounts.urls', namespace='accounts')),
     url(r'^apartments/', include('rentalerts.apps.apartments.urls', namespace='apartments')),
     url(r'^bookmarks/', include('rentalerts.apps.bookmarks.urls', namespace='bookmarks')),
