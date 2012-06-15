@@ -11,9 +11,9 @@ INSTALLED_APPS += ('sentry', 'gunicorn')
 
 # database
 
-DATABASES['default']['NAME'] = 'danjac354_rentalerts'
-DATABASES['default']['USER'] = 'danjac354_rentalerts'
-DATABASES['default']['PASSWORD'] = "e3667de9"
+DATABASES['default']['NAME'] = ''
+DATABASES['default']['USER'] = ''
+DATABASES['default']['PASSWORD'] = ""
 
 # static media
 
